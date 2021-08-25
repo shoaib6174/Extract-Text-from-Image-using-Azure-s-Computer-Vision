@@ -1,0 +1,5 @@
+Flask
+msrest
+azure-cognitiveservices-vision-computervision
+python-dotenv
+
