@@ -16,7 +16,7 @@ endpoint = os.getenv('endpoint')
 
 computervision_client = ComputerVisionClient(endpoint, CognitiveServicesCredentials(subscription_key))
 
-def convertImageToText(read_image_url):
+def extractTextFromImage(read_image_url):
 	read_response  = computervision_client.read(read_image_url ,  raw=True)
 
 	result = ''
@@ -50,7 +50,7 @@ def get_output():
 	if request.method == 'POST':
 		image_url = request.form.get('image_url')
 
-	result = convertImageToText(image_url)
+	result = extractTextFromImage(image_url)
 
 	return render_template("index.html", prediction = result, img_path = image_url)
 
